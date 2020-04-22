@@ -102,8 +102,7 @@
     "webpack": "^4.39.2",
     "webpack-bundle-analyzer": "^3.4.1",
     "webpack-dev-server": "^3.8.0",
-    "webpack-flush-chunks": "^2.0.3",
-    "webpack-node-externals": "^1.7.2"
+    "webpack-flush-chunks": "^2.0.3"
   },
   "devDependencies": {
     "@types/react": "^16.9.1",

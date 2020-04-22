@@ -24,6 +24,7 @@
 - Fix stderr pollution by progress module ([#1356](https://github.com/react-static/react-static/pull/1356))
 - Fix package.json and README for `react-static-plugin-stylus` ([#1244](https://github.com/react-static/react-static/issues/1244))
 - Fix Webpack stats output in environment that don't support color ([#1370](https://github.com/react-static/react-static/pull/1370))
+- Fix Webpack `externals` configuration for monorepo support ([#1383](https://github.com/react-static/react-static/pull/1383))
 
 ## 7.2.2
 

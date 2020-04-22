@@ -3,10 +3,9 @@ import path from 'path'
 import CaseSensitivePathsPlugin from 'case-sensitive-paths-webpack-plugin'
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 import TerserPlugin from 'terser-webpack-plugin'
-import nodeExternals from 'webpack-node-externals'
 import ExtractCssChunks from 'extract-css-chunks-webpack-plugin'
 import OptimizeCSSAssetsPlugin from 'optimize-css-assets-webpack-plugin'
-import resolveFrom from 'resolve-from'
+import { silent as resolveFrom } from 'resolve-from'
 //
 import rules from './rules'
 
@@ -165,18 +164,29 @@ export default function(state) {
   result.devtool = false
   result.externals = [
     new RegExp(`${paths.PLUGINS}`),
+    // Externalise all node_modules except for react-static files that need to be bundled
     (context, request, callback) => {
-      const resolved = path.resolve(context, request)
-      if (
-        [/react-static(\\|\/)lib(\\|\/)browser/, /webpack-flush-chunks/].some(
-          d => d.test(resolved)
-        )
-      ) {
-        return callback(null, `commonjs ${resolved}`)
+      // All paths starting with `./` or `/` may be bundled as usual
+      if (/^[./\\]/.test(request)) {
+        return callback();
       }
-      callback()
+
+      // Attempt to resolve the requested module or file from `context` which points at
+      // the file's location where the dependency on `request` is located at.
+      const res = resolveFrom(`${context}/`, request);
+
+      if (
+        res &&
+        // If the request is in node_modules and a js file it should be externalised,
+        /node_modules[/\\].*\.js$/.test(res) &&
+        // unless it's a react-static dependency
+        !/node_modules[/\\]react-static/.test(res)
+      ) {
+        callback(null, `commonjs ${request}`);
+      } else {
+        callback();
+      }
     },
-    nodeExternals(),
   ]
   result.module.rules = rules(state)
   result.plugins = [
