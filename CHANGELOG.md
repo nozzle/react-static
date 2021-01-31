@@ -13,6 +13,9 @@
 - Add ability to configure hreflang links to Sitemap ([#1539](https://github.com/react-static/react-static/1539))
 - Move react to peerDependencies ([#1560](https://github.com/react-static/react-static/pull/1560))
 - Add preliminary support for React 17 ([#1560](https://github.com/react-static/react-static/pull/1560))
+- Upgrade postcss-loader to 4.2.0 with new API for PostCSS 8+ plugin support ([#1563](https://github.com/react-static/react-static/pull/1563))
+- Add postcss to peerDependencies ([#1563](https://github.com/react-static/react-static/pull/1563))
+
 ### Bugfix
 
 - Fix wrong react alias for preact plugin in webpack config ([#1486](https://github.com/react-static/react-static/pull/1486))

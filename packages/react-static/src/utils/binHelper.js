@@ -116,15 +116,15 @@ ignoredExtensions.forEach(ext => {
 
 const originalConsoleError = console.error
 console.error = (...args) => {
-  if(args.length === 0){
+  if (args.length === 0) {
     return undefined
   }
   const [err, ...rest] = args
-  if(err instanceof Error){
+  if (err instanceof Error) {
     console.log(new PrettyError().render(err), ...rest)
     return
   }
-  
+
   return originalConsoleError(err, ...rest)
 }
 

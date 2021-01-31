@@ -25,13 +25,14 @@ export default ({ includePaths = [], cssLoaderOptions = {}, ...rest }) => ({
       loader: 'postcss-loader',
       options: {
         sourceMap: true,
-        ident: 'postcss',
-        plugins: () => [
-          postcssFlexbugsFixes,
-          autoprefixer({
-            flexbox: 'no-2009',
-          }),
-        ],
+        postcssOptions: {
+          plugins: [
+            postcssFlexbugsFixes,
+            autoprefixer({
+              flexbox: 'no-2009',
+            }),
+          ],
+        },
       },
     }
 

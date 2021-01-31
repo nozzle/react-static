@@ -27,6 +27,7 @@
     "publishLink": "echo '{{event}} to {{changed}}' && yalc publish"
   },
   "peerDependencies": {
+    "postcss": ">= 7.0.0, < 9.0.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-hot-loader": "^4.12.11"
@@ -78,7 +79,7 @@
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "portfinder": "^1.0.21",
     "postcss-flexbugs-fixes": "^4.1.0",
-    "postcss-loader": "^3.0.0",
+    "postcss-loader": "^4.2.0",
     "pretty-error": "^2.1.1",
     "progress": "^2.0.3",
     "prop-types": "^15.7.2",

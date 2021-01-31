@@ -26,13 +26,14 @@ export default ({ includePaths = [], cssLoaderOptions = {}, ...rest }) => ({
         // Necessary for external CSS imports to work
         // https://github.com/facebookincubator/create-react-app/issues/2677
         sourceMap: true,
-        ident: 'postcss',
-        plugins: () => [
-          postcssFlexbugsFixes,
-          autoprefixer({
-            flexbox: 'no-2009',
-          }),
-        ],
+        postcssOptions: {
+          plugins: [
+            postcssFlexbugsFixes,
+            autoprefixer({
+              flexbox: 'no-2009',
+            }),
+          ],
+        },
       },
     }
 
