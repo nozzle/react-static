@@ -99,12 +99,7 @@ export default (async function exportRoute(state) {
   // This routeInfo will be saved to disk. It should only include the
   // data and hashes to construct all of the props later.
   const routeInfo = await plugins.routeInfo(
-    {
-      template,
-      sharedHashesByProp,
-      data,
-      path: routePath,
-    },
+    route,
     state
   )
 

@@ -7,6 +7,7 @@
 ### Improved
 - Update emotion plugin to support 11 version ([#1558](https://github.com/react-static/react-static/pull/1558))
 - Show warning for missing template default export ([#1599](https://github.com/react-static/react-static/pull/1599))
+- Fix routeInfo hook ([#1608](https://github.com/react-static/react-static/pull/1608))
 
 ### Bugfix
 Fix publicPath is used for webpack output publicPath instead of assetsPath ([#1569](https://github.com/react-static/react-static/pull/1569))

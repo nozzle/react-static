@@ -150,7 +150,7 @@ If this is a dynamic route, consider adding it to the prefetchExcludes list:
                 }
 
                 route = await getRouteData(route, latestState)
-                route = await plugins.routeInfo(route, state)
+                route = await plugins.routeInfo(route, latestState)
 
                 // Don't use any hashProp, just pass all the data in dev
                 res.json(route)

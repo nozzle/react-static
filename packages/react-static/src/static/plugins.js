@@ -43,7 +43,7 @@ const hooks = {
   },
   routeInfo: (routeInfo, state) => {
     const hooks = getHooks(state.plugins, 'routeInfo')
-    return reduceHooks(hooks)(routeInfo)
+    return reduceHooks(hooks)(routeInfo, state)
   },
   beforeRenderToElement: (Comp, state) => {
     const hooks = getHooks(state.plugins, 'beforeRenderToElement')
