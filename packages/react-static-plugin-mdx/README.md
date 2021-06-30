@@ -28,8 +28,8 @@ export default {
     [
       "react-static-plugin-mdx",
       {
-        includePaths: ["..."], // Additional include paths on top of the default jsLoader paths
-        extensions: ['.md', '.mdx'] // NOTE: these are the default extensions
+        includePaths: [/* ... */], // Additional include paths on top of the default jsLoader paths
+        extensions: ['.md', '.mdx'], // NOTE: these are the default extensions
         mdxOptions: {
           remarkPlugins: [/* ... */],
           rehypePlugins: [/* ... */],
