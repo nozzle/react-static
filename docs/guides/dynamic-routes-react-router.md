@@ -25,10 +25,12 @@ function App() {
         <Link to="/dynamic">Dynamic</Link>
       </nav>
       <div className="content">
-        <Switch>
-          <Route path="/dynamic" component={Dynamic} />
-          <Route render={() => <Routes />} />
-        </Switch>
+        <React.Suspense fallback={<em>Loading...</em>}>
+          <Switch>
+            <Route path="/dynamic" component={Dynamic} />
+            <Route render={() => <Routes />} />
+          </Switch>
+        </React.Suspense>
       </div>
     </Root>
   )

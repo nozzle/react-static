@@ -20,10 +20,12 @@ function App() {
         <Link to="/dynamic">Dynamic</Link>
       </nav>
       <div className="content">
-        <Router>
-          <Dynamic path="/dynamic/*" />
-          <Routes default />
-        </Router>
+        <React.Suspense fallback={<em>Loading...</em>}>
+          <Router>
+            <Dynamic path="/dynamic/*" />
+            <Routes default />
+          </Router>
+        </React.Suspense>
       </div>
     </Root>
   )
